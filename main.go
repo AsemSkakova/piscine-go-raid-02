@@ -3,6 +3,8 @@ package main
 import (
 	"fmt"
 	"os"
+
+	"github.com/01-edu/z01"
 )
 
 func main() {
@@ -38,10 +40,7 @@ func isSudokuSolved(m [9][9]int) bool {
 		}
 	}
 	if isFilled {
-		for i := 0; i < 9; i++ {
-			fmt.Println(m[i])
-		}
-
+		PrintMatrix(m)
 		return true
 	}
 
@@ -160,4 +159,24 @@ func LengOfString(s string) int {
 		c++
 	}
 	return c
+}
+func IntToRune(n int) rune {
+	r := '0'
+	for i := 0; i < n; i++ {
+		r++
+	}
+	return r
+}
+func PrintMatrix(m [9][9]int) {
+
+	for i := 0; i < 9; i++ {
+		for j := 0; j < 9; j++ {
+			z01.PrintRune(IntToRune(m[i][j]))
+			if j != 8 {
+				z01.PrintRune(' ')
+			}
+
+		}
+		fmt.Println()
+	}
 }
